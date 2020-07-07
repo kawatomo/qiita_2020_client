@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package user;
+
+service AccountService {
+  rpc CreateAccount (google.protobuf.Empty) returns (UserData) {}
+  rpc Login (UserData) returns (SessionData) {}
+}
+
+message UserData {
+  string userId = 1;
+}
+
+message SessionData {
+  string sessionId = 1;
+}
