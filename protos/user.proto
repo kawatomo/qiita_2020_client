@@ -5,14 +5,26 @@ import "google/protobuf/empty.proto";
 package user;
 
 service AccountService {
-  rpc CreateAccount (google.protobuf.Empty) returns (UserData) {}
-  rpc Login (UserData) returns (SessionData) {}
+  rpc CreateAccount (google.protobuf.Empty) returns (LoginData) {}
+  rpc Login (LoginData) returns (SessionData) {}
+  rpc Fetch (SessionData) returns (FetchData) {}
+  rpc Update (UpdateData) returns (SessionData) {}
 }
 
-message UserData {
+message LoginData {
   string userId = 1;
 }
 
 message SessionData {
   string sessionId = 1;
+}
+
+message FetchData {
+  string sessionId = 1;
+  int32 point = 2;
+}
+
+message UpdateData {
+  string sessionId = 1;
+  int32 point = 2;
 }

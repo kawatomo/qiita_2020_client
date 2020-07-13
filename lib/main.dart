@@ -77,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final stub = AccountServiceClient(channel);
 
     final userId = 'hello';
-    final userData = UserData()..userId = userId;
+    final userData = LoginData()..userId = userId;
 
     try {
       final response = await stub.login(userData);
